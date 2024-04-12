@@ -1,0 +1,4 @@
+openai==1.13.3
+python-dotenv==1.0.1
+tokenizer==3.4.3
+scikit_learn==1.4.2
