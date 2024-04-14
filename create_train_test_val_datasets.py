@@ -51,6 +51,7 @@ def filter_unknown_relations(dataset_dict, relations):
     
     if len(unknown_relations) > 0:
         print('\nUnknown relations found:\n')
+        unknown_relations = dict(sorted(unknown_relations.items(), key=lambda x:x[1], reverse=True))
         [print(rel + ' ' + str(count)) for rel, count in unknown_relations.items()]
 
     return updated_dataset_dict 
