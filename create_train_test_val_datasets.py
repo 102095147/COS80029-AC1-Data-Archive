@@ -24,11 +24,17 @@ def add_entity_ids_to_dataset(dataset):
     for data in dataset:
         data_dict = json.loads(data)
 
+        head_pos = data_dict['h']['pos']
+        if head_pos[0] == -1 or head_pos[1] == -1:
+            continue
         head = data_dict['h']['name']
         if head not in entities:
             entities[head] = 'Q' + str(len(entities))
         data_dict['h']['id'] = entities[head]
 
+        tail_pos = data_dict['t']['pos']
+        if tail_pos[0] == -1 or tail_pos[1] == -1:
+            continue
         tail = data_dict['t']['name']
         if tail not in entities:
             entities[tail] = 'Q' + str(len(entities))
